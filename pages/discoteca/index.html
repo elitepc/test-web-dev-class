@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Boom! Discoteca - Início</title>
+      <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="css/normalize.css">
+      <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  </head>
+  <body class="index">
+    <header>
+      <div class="header-container">
+        <h1><span>Boom!</span> Discoteca</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Página Inicial</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div id="player"></div>
+      <div><input type="button" id="volumeUp"></div>
+    </main>
+    <footer>
+      @Copyright 2016, Boom! Discoteca
+    </footer>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script async src="https://www.youtube.com/iframe_api"></script>
+    <script>
+    function onYouTubeIframeAPIReady() {
+      var player;
+      player = new YT.Player('player', {
+        videoId: 'qomoxbo3v-I', // YouTube Video ID
+        playerVars: {
+          autoplay: 1, // Auto-play the video on load
+          controls: 0, // Show pause/play buttons in player
+          showinfo: 0, // Hide the video title
+          modestbranding: 1, // Hide the Youtube Logo
+          loop: 1, // Run the video in a loop
+          fs: 1, // Hide the full screen button
+          cc_load_policty: 1, // Hide closed captions
+          iv_load_policy: 3, // Hide the Video Annotations
+          autohide: 1, // Hide video controls when playing
+          rel: 0,
+          playlist: 'qomoxbo3v-I'
+        },
+        events: {
+          onReady: function(e) {
+            e.target.mute();
+          }
+        }
+      });
+      $('#volumeUp').click(function(){
+        player.setVolume(100);
+      });
+
+    }
+    // Written by @labnol
+    </script>
+
+  </body>
+</html>
